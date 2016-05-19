@@ -1,0 +1,185 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+    width: 920px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.customers-orders-table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+.customers-orders-table thead tr {
+    background: #ccc;
+}
+
+.customers-orders-table th {
+    padding: 5px;
+    width: 250px;
+    text-align: center;
+    border: 1px solid #000;
+    border-width: 0 1px 0 1px;
+}
+
+.customers-orders-table tbody tr:nth-child(odd) {
+    background: #eee;
+}
+
+.customers-orders-table td {
+    padding: 5px;
+    border: 1px solid #000;
+    border-width: 0 1px 0 1px;
+}
+
+.last-col {
+    width: 150px !important;
+}
+
+#add-customer input[type=text] {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
+#search-name input {
+    display: inline-block;
+    margin: 0 0 0 560px;
+}
+
+#orders-form select {
+    margin: 0 0 0 10px;
+}
+
+#orders-form select[name=customer] {
+    width: 150px;
+}
+
+#orders-form select[name=products] {
+    width: 120px;
+}
+
+#orders-form input[type=submit] {
+    margin: 0 0 0 188px;
+}
+
+#orders-form .delete-order-form input[type=submit] {
+    margin: 0 !important;
+}
+
+#search-customer-order input {
+    width: 200px;
+    margin: 0 0 0 719px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+select option:empty {
+    display: none;
+}
+
+#store-sidebar {
+    width: 225px;
+    min-height: 60px;
+    float: left;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+#store-sidebar input[type=text] {
+    width: 175px;
+    padding: 5px;
+}
+
+#store-sidebar input[type=submit] {
+    clear: both;
+    float: right;
+    margin: 0 91px 0 0;
+}
+
+#store-content {
+    width: 625px;
+    min-height: 200px;
+    float: right;
+    padding: 8px 0 0;
+}
+
+#store-content p {
+    clear: both;
+}
+
+#product-list {
+    list-style: none;
+    display: block;
+    clear: both;
+}
+
+#product-list li {
+    display: inline-block;
+    text-align: center;
+    float: left;
+    padding: 0 10px 20px 0;
+    width: 105px;
+    height: 175px;
+    overflow: hidden;
+}
+
+#product-list img {
+    width: 100px;
+    height: 100px;
+}
+
+.show-more-less-link {
+    display: block;
+    padding: 0 0 0 40px;
+}
+
+#nav a, #nav a:link, #nav a:hover {
+    color: blue;
+}
+
+#nav a:hover, #nav a:active {
+    color: blue;
+    text-decoration: none;
+}
+
+#update-form label {
+    display: inline-block;
+    font-weight: bold;
+    width: 175px;
+}
+
+#update-form input[type=text] {
+    padding: 5px;
+    display: inline-block;
+    width: 650px;
+}
+
+#update-form img {
+    padding: 10px 0 0 175px;
+}
+
+.unbold {
+    font-weight: normal;
+}
+
+#login-form label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+}
+
+#login-form input[type=text] {
+    display: inline-block;
+    width: 250px;
+}

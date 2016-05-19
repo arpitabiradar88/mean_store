@@ -1,0 +1,49 @@
+<div ng-controller = "ordersController">
+
+    <div id="store-sidebar">
+        <p><input type="text" ng-model="filter_name" placeholder="product name search..."/></p>
+
+    </div>
+
+    <div id="store-content">
+
+        <h1>Dashboard</h1>
+
+        <h2>Products</h2>
+
+        <div ng-init="limit = 5">
+
+            <ul ng-model="new_order.product" id="product-list">
+
+                <li ng-repeat="product in products | filter: filter_name | limitTo: limit as results"><img ng-src="./images/{{ product.imgUrl }}" alt="" width="100" height="100"/><br />
+                    <span ng-bind="product.name"></span><br />
+                    (<span ng-bind="product.initialQuantity"></span> left)
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- show more link -->
+        <p>
+            <a class="show-more-less-link" href="" ng-hide="results.length === products.length" ng-click="limit = limit +5">Show more...</a>
+        </p>
+
+        <h2>Recent Orders</h2>
+
+        <ul ng-repeat="order in orders">
+            <li><span ng-bind="order.name"></span> purchased <span ng-bind="order.product"></span></li>
+        </ul>
+
+        <h2>New Customers</h2>
+
+        <ul ng-repeat="customer in customers">
+            <li><span ng-bind="customer.name"></span> joined the store</li>
+        </ul>
+
+
+
+    </div><!-- #store-content -->
+
+
+</div>

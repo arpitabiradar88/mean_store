@@ -1,0 +1,57 @@
+<div>
+
+    <div id="store-sidebar">
+        <p><input type="text" ng-model="filter_name" placeholder="product name search..."/></p>
+
+        <h2>Add a New Product</h2>
+        <form name="newProduct" novalidate>
+            <p><label for="name">Product Name:</label><br />
+            <input ng-model="new_product.name" type="text" name="name" required ng-minlength="2"/></p>
+
+            <p><label for="imgUrl">Image URL:</label><br />
+            <input ng-model="new_product.imgUrl" type="text" name="imgUrl"/></p>
+
+            <p><label for="description">Description:</label><br />
+            <input ng-model="new_product.description" type="text" name="description" required/></p>
+
+            <p><label for="initialQuantity">Initial Quantity</label>
+            <select ng-model="new_product.initialQuantity" name="initialQuantity" required>
+                <option value="">Select a quantity...</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+            </select></p>
+
+            <p><input type="submit" value="Create Product" ng-click="addProduct()" ng-disabled="newProduct.$invalid"/></p>
+
+        </form>
+
+        <!-- client errors -->
+        <p>&nbsp;</p>
+        <p ng-repeat="singleError in multipleErrors">
+            <span ng-bind="singleError" class="error"></span>
+        </p>
+    </div><!-- #store-sidebar -->
+
+
+    <div id="store-content">
+        <h1>Products</h1>
+
+        <ul ng-model="new_order.product" id="product-list">
+
+            <li ng-repeat="product in products | filter: filter_name"><img ng-src="./images/{{ product.imgUrl }}" alt="" width="100" height="100"/><br />
+                <span ng-bind="product.name"></span><br />
+                (<span ng-bind="product.initialQuantity"></span> left)<br />
+                <a href="/product/{{product._id}}">Update</a><br />
+                <a href="/destroy/product/{{  product._id}}">Delete</a><br />
+            </li>
+
+        </ul>
+
+    </div><!-- #store-content -->
+
+
+
+</div>

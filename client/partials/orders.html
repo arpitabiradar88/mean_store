@@ -1,0 +1,82 @@
+<div ng-controller="ordersController">
+
+
+    <div id="orders-form">
+
+    <form name="newOrder" novalidate>
+
+        <h1>Add a new order</h1>
+
+        <p>Customer:
+
+            <!--
+            "required" attribute of "select" tag makes selecting
+            an "option" tag inside the "select" tag with a
+            "value" attribute that is NOT empty required
+            -->
+            <select name="name" ng-model="new_order.name" required>
+                <option value="">Select name...</option>
+                <option ng-repeat="customer in customers" value="{{ customer.name }}" ng-bind="customer.name"></option> 
+        </select>
+
+        </p>
+
+        <p>Order:<select name="quantity" ng-model="new_order.quantity" required>
+            <option value="">Select quantity...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select> <select name="product" ng-model="new_order.product" required>
+            <option value="">Select product...</option>
+            <option ng-repeat="product in products" value="{{ product.name }}" ng-bind="product.name"></option>
+        </select>
+        </p>
+
+        <!--
+        The "ng-disabled" attribute in the "input" tag below
+        will disable the "input" tag until option tags inside
+        all of the select tags are selected that have a value
+        -->
+        <p><input type="submit" value="Order" ng-click="addOrder()" ng-disabled="newOrder.$invalid"/></p>
+
+    </form>
+
+        <p id="search-customer-order"><input ng-model="filter_name" type="text" placeholder="search orders by customer name"/></p>
+
+        <!-- client side errors -->
+
+        <table class="customers-orders-table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                    <th class="last-col">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="order in orders | filter: filter_name">
+                    <td ng-bind="order.name"></td>
+                    <td ng-bind="order.product"></td>
+                    <td ng-bind="order.quantity"></td>
+                    <td ng-bind="order.created_at.slice(0, 10) + ', ' + order.created_at.slice(12, 22)"></td>
+                    <td>
+                        <a href="/destroy/order/{{  order._id }}">Delete Order</a>
+                        </td>
+                </tr>
+            </tbody>
+
+         </table>
+
+    </div>
+
+</div>
